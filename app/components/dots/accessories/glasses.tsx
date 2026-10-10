@@ -1,0 +1,1 @@
+export default function Glasses() { return <group position={[0,.08,.69]}>{[-.29,.29].map(x=><mesh key={x} position={[x,0,0]}><torusGeometry args={[.24,.028,8,32]}/><meshStandardMaterial color="#11121c"/></mesh>)}<mesh><boxGeometry args={[.16,.035,.04]}/><meshStandardMaterial color="#11121c"/></mesh></group>; }

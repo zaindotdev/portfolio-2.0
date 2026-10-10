@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zain portfolio
 
-## Getting Started
+A custom Next.js App Router portfolio with TypeScript, Tailwind CSS, GSAP / ScrollTrigger, and Lenis. Uses Bricolage Grotesque, Instrument Sans, and DM Mono through next/font.
 
-First, run the development server:
+## Run
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production and quality checks:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+bun run build
+bun run lint
+bun run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Owner assets
 
-## Learn More
+The supplied owner portrait is converted to transparent WebP; its original PNG is preserved. Project screenshot placeholders remain until real screenshots exist. Add these files and rebuild; the page detects them at build time and renders them through next/image.
 
-To learn more about Next.js, take a look at the following resources:
+- `public/portrait.webp`: transparent 900 × 1300 owner cutout.
+- `public/projects/intervue-ai.webp`
+- `public/projects/velocity.webp`
+- `public/projects/ravintola-amazona.webp`
+- `public/projects/home-services-marketplace.webp`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Project screenshots use a 1200 × 700 image slot. Project copy and the contact email live in `app/portfolio.ts`. Case study links open accessible dialogs with the supplied summary; full case study content is pending owner input.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Motion
 
-## Deploy on Vercel
+`app/components/portfolio-motion.tsx` owns the single fixed portrait in the root layout. The outer transform follows a whole-page timeline at 0 / 20 / 45 / 70 / 100 percent, while nested layers isolate entrance, float, row tracking, wave, and silhouette effects. A mount signal prevents headline splitting from racing Next.js hydration. Mobile motion uses a smaller path. The portrait dims when it overlaps visible copy or CTAs at any screen size. Reduced motion disables Lenis, the portrait path, marquee and text reveals, with a static hero portrait.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design reference: the supplied Zain Portfolio Design PDF. Behavior and verbatim portfolio copy follow the handoff brief, with the supplied real email replacing its placeholder.
